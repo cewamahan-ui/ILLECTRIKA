@@ -133,7 +133,7 @@ function LinkBtn({ href, label, sub, icon, index }) {
         background: hov ? 'rgba(255,255,255,0.035)' : 'transparent',
         color: '#fff',
         textDecoration: 'none',
-        fontFamily: "'Share Tech Mono', monospace",
+        fontFamily: "'IBM Plex Mono', monospace",
         fontSize: '0.82rem',
         letterSpacing: '0.13em',
         textTransform: 'uppercase',
@@ -229,7 +229,7 @@ export default function App() {
       {/* Status — top left */}
       <div style={{
         position: 'fixed', top: 20, left: 52, zIndex: 10,
-        fontFamily: "'Share Tech Mono', monospace",
+        fontFamily: "'IBM Plex Mono', monospace",
         fontSize: '0.56rem', letterSpacing: '0.2em',
         color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase',
         animation: 'shimmer 5s ease-in-out 1s infinite, flicker 10s linear infinite',
@@ -240,7 +240,7 @@ export default function App() {
       {/* Year — bottom right */}
       <div style={{
         position: 'fixed', bottom: 20, right: 52, zIndex: 10,
-        fontFamily: "'Share Tech Mono', monospace",
+        fontFamily: "'IBM Plex Mono', monospace",
         fontSize: '0.56rem', letterSpacing: '0.18em',
         color: 'rgba(255,255,255,0.18)', textTransform: 'uppercase',
       }}>
@@ -314,9 +314,10 @@ export default function App() {
         </div>
       </div>
 
-      {/* Mobile */}
+      {/* Responsive: Phone (<640px), Tablet (640-1024px), Desktop (1025px+) */}
       <style>{`
-        @media (max-width: 700px) {
+        /* Phone (max-width: 639px) */
+        @media (max-width: 639px) {
           .layout {
             grid-template-columns: 1fr !important;
             padding: 2rem 1.5rem !important;
@@ -331,6 +332,28 @@ export default function App() {
             padding-left: 0 !important;
             padding-top: 2rem !important;
             width: 100%;
+          }
+        }
+
+        /* Tablet (640px - 1024px) */
+        @media (min-width: 640px) and (max-width: 1024px) {
+          .layout {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 0 3rem !important;
+            padding: 2rem 2.5rem !important;
+            max-width: 820px !important;
+          }
+          .layout > div:last-child {
+            padding-left: 2rem !important;
+          }
+        }
+
+        /* Laptop (1025px+) */
+        @media (min-width: 1025px) {
+          .layout {
+            max-width: 1040px;
+            padding: 2rem 4rem;
+            gap: 0 5.5rem;
           }
         }
       `}</style>
